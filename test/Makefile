@@ -7,7 +7,7 @@
 
 SHELL = /bin/sh
 BUILD_DIR = ./build
-TEST_EXECUTABLE = $(BUILD_DIR)/com.github.avojak.replay-tests
+TEST_EXECUTABLE = $(BUILD_DIR)/com.github.avojak.vee-tests
 
 $(BUILD_DIR):
 	meson build --prefix=/usr

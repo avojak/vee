@@ -19,17 +19,17 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.MainWindow : Hdy.Window {
+public class Vee.MainWindow : Hdy.Window {
 
-    public unowned Replay.Application app { get; construct; }
+    public unowned Vee.Application app { get; construct; }
 
-    private Replay.Widgets.Dialogs.DebugDialog? debug_dialog = null;
+    private Vee.Widgets.Dialogs.DebugDialog? debug_dialog = null;
 
-    private Replay.MainLayout main_layout;
+    private Vee.MainLayout main_layout;
 
-    private Replay.Emulator? emulator;
+    private Vee.Emulator? emulator;
 
-    public MainWindow (Replay.Application application) {
+    public MainWindow (Vee.Application application) {
         Object (
             application: application,
             app: application,
@@ -40,11 +40,11 @@ public class Replay.MainWindow : Hdy.Window {
     }
 
     construct {
-        main_layout = new Replay.MainLayout (this);
+        main_layout = new Vee.MainLayout (this);
         add (main_layout);
 
-        move (Replay.Application.settings.get_int ("pos-x"), Replay.Application.settings.get_int ("pos-y"));
-        resize (Replay.Application.settings.get_int ("window-width"), Replay.Application.settings.get_int ("window-height"));
+        move (Vee.Application.settings.get_int ("pos-x"), Vee.Application.settings.get_int ("pos-y"));
+        resize (Vee.Application.settings.get_int ("window-width"), Vee.Application.settings.get_int ("window-height"));
 
         this.destroy.connect (() => {
             // Do stuff before closing the application
@@ -84,10 +84,10 @@ public class Replay.MainWindow : Hdy.Window {
         get_size (out width, out height);
         get_position (out x, out y);
 
-        Replay.Application.settings.set_int ("pos-x", x);
-        Replay.Application.settings.set_int ("pos-y", y);
-        Replay.Application.settings.set_int ("window-width", width);
-        Replay.Application.settings.set_int ("window-height", height);
+        Vee.Application.settings.set_int ("pos-x", x);
+        Vee.Application.settings.set_int ("pos-y", y);
+        Vee.Application.settings.set_int ("window-width", width);
+        Vee.Application.settings.set_int ("window-height", height);
     }
 
     public void on_start_button_clicked (string rom_uri) {
@@ -95,8 +95,8 @@ public class Replay.MainWindow : Hdy.Window {
         if (emulator != null) {
             return;
         }
-        //  emulator = new Replay.DMG.Emulator ();
-        emulator = new Replay.CHIP8.Interpreter ();
+        //  emulator = new Vee.DMG.Emulator ();
+        emulator = new Vee.CHIP8.Interpreter ();
         // TODO: Handle when ROM file not found
         //  emulator.load_rom (GLib.File.new_for_path (Constants.PKG_DATA_DIR + "/" + "IBM Logo.ch8"));
         //  emulator.load_rom (GLib.File.new_for_path (Constants.PKG_DATA_DIR + "/" + "test_opcode.ch8"));
@@ -125,7 +125,7 @@ public class Replay.MainWindow : Hdy.Window {
 
     public void on_debug_button_clicked () {
         if (debug_dialog == null) {
-            debug_dialog = new Replay.Widgets.Dialogs.DebugDialog (this);
+            debug_dialog = new Vee.Widgets.Dialogs.DebugDialog (this);
             debug_dialog.show_all ();
             debug_dialog.destroy.connect (() => {
                 debug_dialog = null;

@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Graphics.GraphicsRegisters : GLib.Object, Replay.DMG.Memory.AddressSpace {
+public class Vee.DMG.Graphics.GraphicsRegisters : GLib.Object, Vee.DMG.Memory.AddressSpace {
 
     private const int STAT_ADDRESS = 0xFF41; // LCD Status
     private const int SCY_ADDRESS = 0xFF42; // Scroll X

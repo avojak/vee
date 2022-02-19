@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Processor.FlagRegister : GLib.Object {
+public class Vee.DMG.Processor.FlagRegister : GLib.Object {
 
     public enum Flags {
         Z, // Zero
@@ -74,23 +74,23 @@ public class Replay.DMG.Processor.FlagRegister : GLib.Object {
     }
 
     private void update_byte (int position, bool value) {
-        byte = mask (Replay.Utils.BitUtils.update_bit (byte, position, value));
+        byte = mask (Vee.Utils.BitUtils.update_bit (byte, position, value));
     }
 
     public bool is_z () {
-        return Replay.Utils.BitUtils.get_bit (byte, Flags.Z.get_bit_position ());
+        return Vee.Utils.BitUtils.get_bit (byte, Flags.Z.get_bit_position ());
     }
 
     public bool is_n () {
-        return Replay.Utils.BitUtils.get_bit (byte, Flags.N.get_bit_position ());
+        return Vee.Utils.BitUtils.get_bit (byte, Flags.N.get_bit_position ());
     }
 
     public bool is_h () {
-        return Replay.Utils.BitUtils.get_bit (byte, Flags.H.get_bit_position ());
+        return Vee.Utils.BitUtils.get_bit (byte, Flags.H.get_bit_position ());
     }
 
     public bool is_c () {
-        return Replay.Utils.BitUtils.get_bit (byte, Flags.C.get_bit_position ());
+        return Vee.Utils.BitUtils.get_bit (byte, Flags.C.get_bit_position ());
     }
 
     private int mask (int byte) {

@@ -1,5 +1,5 @@
 # Project name and programming language
-project('com.github.avojak.replay', 'vala', 'c', version: '1.0.0')
+project('com.github.avojak.vee', 'vala', 'c', version: '1.0.0')
 
 i18n = import('i18n')
 gnome = import('gnome')
@@ -7,7 +7,7 @@ gnome = import('gnome')
 vala_args = ['--pkg', 'posix']
 
 application_id = meson.project_name()
-application_name = 'Replay'
+application_name = 'Vee'
 
 # Set our translation domain
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language: 'c')

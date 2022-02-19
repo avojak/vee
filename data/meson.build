@@ -29,7 +29,7 @@ endforeach
 # )
 
 # Install the settings schema
-schema_path = '/com/github/avojak/replay/'
+schema_path = '/com/github/avojak/vee/'
 schema_conf = configuration_data()
 schema_conf.set('appid', application_id)
 schema_conf.set('schema-path', schema_path)

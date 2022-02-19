@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Graphics.PPU : GLib.Object {
+public class Vee.DMG.Graphics.PPU : GLib.Object {
 
     public Mode mode { get; set; }
 

@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
- public class Replay.CHIP8.Processor.Registers : GLib.Object {
+ public class Vee.CHIP8.Processor.Registers : GLib.Object {
 
     public uint8 v[16];
 

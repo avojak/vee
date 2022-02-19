@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Memory.Timer : GLib.Object, Replay.DMG.Memory.AddressSpace {
+public class Vee.DMG.Memory.Timer : GLib.Object, Vee.DMG.Memory.AddressSpace {
 
     private const int DIV_ADDRESS = 0xFF04;  // Divider register
     private const int TIMA_ADDRESS = 0xFF05; // Timer counter

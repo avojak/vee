@@ -19,11 +19,11 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.Widgets.Dialogs.DebugDialog : Granite.Dialog {
+public class Vee.Widgets.Dialogs.DebugDialog : Granite.Dialog {
 
-    public unowned Replay.MainWindow main_window { get; construct; }
+    public unowned Vee.MainWindow main_window { get; construct; }
 
-    public DebugDialog (Replay.MainWindow main_window) {
+    public DebugDialog (Vee.MainWindow main_window) {
         Object (
             deletable: true,
             resizable: true,

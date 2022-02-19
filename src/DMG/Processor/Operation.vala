@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Processor.Operation : GLib.Object {
+public class Vee.DMG.Processor.Operation : GLib.Object {
 
     public string description { get; construct; }
     // The length of the operation (in bytes)
@@ -38,17 +38,17 @@ public class Replay.DMG.Processor.Operation : GLib.Object {
         this.exec = exec;
     }
 
-    public int execute (Replay.DMG.Processor.CPU cpu) {
+    public int execute (Vee.DMG.Processor.CPU cpu) {
         int result = exec (cpu);
         //  handle_flags (cpu);
         //  cpu.set_pc (cpu.get_pc () + length);
         return result;
     }
 
-    //  protected void handle_flags (Replay.DMG.Processor.CPU cpu) {
+    //  protected void handle_flags (Vee.DMG.Processor.CPU cpu) {
     //      // TODO: Implement
     //  }
 
-    public delegate int Lambda (Replay.DMG.Processor.CPU cpu);
+    public delegate int Lambda (Vee.DMG.Processor.CPU cpu);
 
 }

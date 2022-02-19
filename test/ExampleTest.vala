@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.CHIP8.ExampleTest : Replay.TestCase {
+public class Vee.CHIP8.ExampleTest : Vee.TestCase {
 
     public ExampleTest () {
         // assign a name for this class
@@ -35,7 +35,7 @@ public class Replay.CHIP8.ExampleTest : Replay.TestCase {
     public void test_example() {
         // add your expressions
         // assert(expression);
-        new Replay.CHIP8.Memory.MMU ();
+        new Vee.CHIP8.Memory.MMU ();
     }
 
     public override void tear_down () {

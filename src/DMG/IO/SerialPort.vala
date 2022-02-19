@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.IO.SerialPort : GLib.Object, Replay.DMG.Memory.AddressSpace {
+public class Vee.DMG.IO.SerialPort : GLib.Object, Vee.DMG.Memory.AddressSpace {
 
     private const int SB_ADDRESS = 0xFF01;
     private const int SC_ADDRESS = 0xFF02;

@@ -21,7 +21,7 @@
  * 	Julien Peeters <contact@julienpeeters.fr>
  */
 
- public abstract class Replay.TestCase : Object {
+ public abstract class Vee.TestCase : Object {
 
 	private GLib.TestSuite suite;
 	private Adaptor[] adaptors = new Adaptor[0];

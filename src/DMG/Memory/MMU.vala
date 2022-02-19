@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Memory.MMU : GLib.Object {
+public class Vee.DMG.Memory.MMU : GLib.Object {
 
     // http://gameboy.mongenel.com/dmg/asmmemmap.html
     // GameBoy Memory Areas
@@ -50,25 +50,25 @@ public class Replay.DMG.Memory.MMU : GLib.Object {
     //  int[] io = new int[0x100];    // $FF00-$FF7F  Hardware I/O Registers
     //  int[] hram = new int[0x80];   // $FF80-$FFFE  High RAM Area
 
-    private Gee.List<Replay.DMG.Memory.AddressSpace> address_spaces;
+    private Gee.List<Vee.DMG.Memory.AddressSpace> address_spaces;
 
     construct {
-        address_spaces = new Gee.ArrayList<Replay.DMG.Memory.AddressSpace> ();
-        address_spaces.add (new Replay.DMG.Memory.BootRom ());
+        address_spaces = new Gee.ArrayList<Vee.DMG.Memory.AddressSpace> ();
+        address_spaces.add (new Vee.DMG.Memory.BootRom ());
         // TODO: Add cartridge
-        address_spaces.add (new Replay.DMG.Memory.RAM (0x8000, 0x2000)); // 0x8000-0x9FFF (Video RAM (VRAM))
-        address_spaces.add (new Replay.DMG.Memory.RAM (0xC000, 0x1000)); // 0xC000-0xCFFF (Internal RAM - Bank 0)
-        address_spaces.add (new Replay.DMG.Memory.RAM (0xD000, 0x1000)); // 0xD000-0xDFFF (Internal RAM - Bank 1)
-        address_spaces.add (new Replay.DMG.Memory.RAM (0xFE00, 0x00A0)); // 0xFE00-0xFEA0 (Object Attribute Memory (OAM))
-        address_spaces.add (new Replay.DMG.IO.Joypad ());                // 0xFF00
-        address_spaces.add (new Replay.DMG.IO.SerialPort ());            // 0xFF01-0xFF02 (Serial transfer data and control)
-        address_spaces.add (new Replay.DMG.Memory.Timer ());             // 0xFF04-0xFF07 (Timer and divider registers)
-        address_spaces.add (new Replay.DMG.Audio.SoundRegisters ());
-        address_spaces.add (new Replay.DMG.Memory.RAM (0xFF24, 0x0003));  // 0xFF24-0xFF26 (Sound RAM) // TODO: Should be part of SoundRegisters or APU
-        address_spaces.add (new Replay.DMG.Graphics.LCDC ());            // 0xFF40 (LCD Control Register (LCDC))
-        address_spaces.add (new Replay.DMG.Graphics.GraphicsRegisters ());
-        address_spaces.add (new Replay.DMG.Memory.RAM (0xFF80, 0x007F)); // 0xFF80-0xFFFE (High RAM (HRAM))
-        address_spaces.add (new Replay.DMG.Processor.InterruptManager ()); // 0xFF0F, 0xFFFF Interrupt manager
+        address_spaces.add (new Vee.DMG.Memory.RAM (0x8000, 0x2000)); // 0x8000-0x9FFF (Video RAM (VRAM))
+        address_spaces.add (new Vee.DMG.Memory.RAM (0xC000, 0x1000)); // 0xC000-0xCFFF (Internal RAM - Bank 0)
+        address_spaces.add (new Vee.DMG.Memory.RAM (0xD000, 0x1000)); // 0xD000-0xDFFF (Internal RAM - Bank 1)
+        address_spaces.add (new Vee.DMG.Memory.RAM (0xFE00, 0x00A0)); // 0xFE00-0xFEA0 (Object Attribute Memory (OAM))
+        address_spaces.add (new Vee.DMG.IO.Joypad ());                // 0xFF00
+        address_spaces.add (new Vee.DMG.IO.SerialPort ());            // 0xFF01-0xFF02 (Serial transfer data and control)
+        address_spaces.add (new Vee.DMG.Memory.Timer ());             // 0xFF04-0xFF07 (Timer and divider registers)
+        address_spaces.add (new Vee.DMG.Audio.SoundRegisters ());
+        address_spaces.add (new Vee.DMG.Memory.RAM (0xFF24, 0x0003));  // 0xFF24-0xFF26 (Sound RAM) // TODO: Should be part of SoundRegisters or APU
+        address_spaces.add (new Vee.DMG.Graphics.LCDC ());            // 0xFF40 (LCD Control Register (LCDC))
+        address_spaces.add (new Vee.DMG.Graphics.GraphicsRegisters ());
+        address_spaces.add (new Vee.DMG.Memory.RAM (0xFF80, 0x007F)); // 0xFF80-0xFFFE (High RAM (HRAM))
+        address_spaces.add (new Vee.DMG.Processor.InterruptManager ()); // 0xFF0F, 0xFFFF Interrupt manager
     }
 
     public void initialize_io_registers () {

@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Memory.Cartridge : GLib.Object, Replay.DMG.Memory.AddressSpace {
+public class Vee.DMG.Memory.Cartridge : GLib.Object, Vee.DMG.Memory.AddressSpace {
 
     public int offset { get; construct; }
     public int length { get; construct; }

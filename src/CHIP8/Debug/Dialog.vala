@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.CHIP8.Debug.Dialog : Gtk.Grid {
+public class Vee.CHIP8.Debug.Dialog : Gtk.Grid {
 
     private Gtk.Label pc_register_label;
     private Gtk.Label i_register_label;

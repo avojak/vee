@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Processor.Registers : GLib.Object {
+public class Vee.DMG.Processor.Registers : GLib.Object {
 
     public enum Register {
         A, B, C, D, E, H, L, AF, BC, DE, HL, SP, PC;
@@ -57,7 +57,7 @@ public class Replay.DMG.Processor.Registers : GLib.Object {
     private int sp; // stack pointer
     private int pc; // program counter
 
-    private Replay.DMG.Processor.FlagRegister flag_register = new Replay.DMG.Processor.FlagRegister ();
+    private Vee.DMG.Processor.FlagRegister flag_register = new Vee.DMG.Processor.FlagRegister ();
 
     public int get_a () {
         return a;
@@ -112,63 +112,63 @@ public class Replay.DMG.Processor.Registers : GLib.Object {
     }
 
     public void set_a (int a) {
-        this.a = Replay.Utils.BitUtils.check_byte_argument (a, "a");
+        this.a = Vee.Utils.BitUtils.check_byte_argument (a, "a");
     }
 
     public void set_b (int b) {
-        this.b = Replay.Utils.BitUtils.check_byte_argument (b, "b");
+        this.b = Vee.Utils.BitUtils.check_byte_argument (b, "b");
     }
 
     public void set_c (int c) {
-        this.c = Replay.Utils.BitUtils.check_byte_argument (c, "c");
+        this.c = Vee.Utils.BitUtils.check_byte_argument (c, "c");
     }
 
     public void set_d (int d) {
-        this.d = Replay.Utils.BitUtils.check_byte_argument (d, "d");
+        this.d = Vee.Utils.BitUtils.check_byte_argument (d, "d");
     }
 
     public void set_e (int e) {
-        this.e = Replay.Utils.BitUtils.check_byte_argument (e, "e");
+        this.e = Vee.Utils.BitUtils.check_byte_argument (e, "e");
     }
 
     public void set_h (int h) {
-        this.h = Replay.Utils.BitUtils.check_byte_argument (h, "h");
+        this.h = Vee.Utils.BitUtils.check_byte_argument (h, "h");
     }
 
     public void set_l (int l) {
-        this.l = Replay.Utils.BitUtils.check_byte_argument (l, "l");
+        this.l = Vee.Utils.BitUtils.check_byte_argument (l, "l");
     }
 
     public void set_af (int af) {
-        Replay.Utils.BitUtils.check_word_argument (af, "af");
-        a = Replay.Utils.BitUtils.get_msb (af);
-        flag_register.set_byte (Replay.Utils.BitUtils.get_lsb (af));
+        Vee.Utils.BitUtils.check_word_argument (af, "af");
+        a = Vee.Utils.BitUtils.get_msb (af);
+        flag_register.set_byte (Vee.Utils.BitUtils.get_lsb (af));
     }
 
     public void set_bc (int bc) {
-        Replay.Utils.BitUtils.check_word_argument (bc, "bc");
-        b = Replay.Utils.BitUtils.get_msb (bc);
-        c = Replay.Utils.BitUtils.get_lsb (bc);
+        Vee.Utils.BitUtils.check_word_argument (bc, "bc");
+        b = Vee.Utils.BitUtils.get_msb (bc);
+        c = Vee.Utils.BitUtils.get_lsb (bc);
     }
 
     public void set_de (int de) {
-        Replay.Utils.BitUtils.check_word_argument (de, "de");
-        d = Replay.Utils.BitUtils.get_msb (de);
-        e = Replay.Utils.BitUtils.get_lsb (de);
+        Vee.Utils.BitUtils.check_word_argument (de, "de");
+        d = Vee.Utils.BitUtils.get_msb (de);
+        e = Vee.Utils.BitUtils.get_lsb (de);
     }
 
     public void set_hl (int hl) {
-        Replay.Utils.BitUtils.check_word_argument (hl, "hl");
-        h = Replay.Utils.BitUtils.get_msb (hl);
-        l = Replay.Utils.BitUtils.get_lsb (hl);
+        Vee.Utils.BitUtils.check_word_argument (hl, "hl");
+        h = Vee.Utils.BitUtils.get_msb (hl);
+        l = Vee.Utils.BitUtils.get_lsb (hl);
     }
 
     public void set_sp (int sp) {
-        this.sp = Replay.Utils.BitUtils.check_word_argument (sp, "sp");
+        this.sp = Vee.Utils.BitUtils.check_word_argument (sp, "sp");
     }
 
     public void set_pc (int pc) {
-        this.pc = Replay.Utils.BitUtils.check_word_argument (pc, "pc");
+        this.pc = Vee.Utils.BitUtils.check_word_argument (pc, "pc");
     }
 
     public void increment_sp () {
@@ -187,7 +187,7 @@ public class Replay.DMG.Processor.Registers : GLib.Object {
         pc = (pc - 1) & 0xFFFF;
     }
 
-    public void set_register_value (Replay.DMG.Processor.Registers.Register register, int value) {
+    public void set_register_value (Vee.DMG.Processor.Registers.Register register, int value) {
         switch (register) {
             case A:
                 set_a (value);
@@ -234,7 +234,7 @@ public class Replay.DMG.Processor.Registers : GLib.Object {
     }
 
     // XXX: This is a terrible, horrible, no good, very bad hack to make the ALU simpler for add2
-    public int get_register_value (Replay.DMG.Processor.Registers.Register register) {
+    public int get_register_value (Vee.DMG.Processor.Registers.Register register) {
         switch (register) {
             case A:
                 return get_a ();
@@ -267,7 +267,7 @@ public class Replay.DMG.Processor.Registers : GLib.Object {
         }
     }
 
-    public void set_flag (Replay.DMG.Processor.FlagRegister.Flags flag) {
+    public void set_flag (Vee.DMG.Processor.FlagRegister.Flags flag) {
         switch (flag) {
             case Z:
                 flag_register.set_z (true);
@@ -286,7 +286,7 @@ public class Replay.DMG.Processor.Registers : GLib.Object {
         }
     }
 
-    public void clear_flag (Replay.DMG.Processor.FlagRegister.Flags flag) {
+    public void clear_flag (Vee.DMG.Processor.FlagRegister.Flags flag) {
         switch (flag) {
             case Z:
                 flag_register.set_z (false);
@@ -305,7 +305,7 @@ public class Replay.DMG.Processor.Registers : GLib.Object {
         }
     }
 
-    public bool get_flag (Replay.DMG.Processor.FlagRegister.Flags flag) {
+    public bool get_flag (Vee.DMG.Processor.FlagRegister.Flags flag) {
         switch (flag) {
             case Z:
                 return flag_register.is_z ();

@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.CHIP8.Interpreter : Replay.Emulator, GLib.Object {
+public class Vee.CHIP8.Interpreter : Vee.Emulator, GLib.Object {
 
     public const string HARDWARE_NAME = "CHIP-8";
     public const string COMMON_NAME = "CHIP-8";
@@ -30,22 +30,22 @@ public class Replay.CHIP8.Interpreter : Replay.Emulator, GLib.Object {
     private Thread<int>? emulator_thread;
     private Cancellable? cancellable;
 
-    private Replay.CHIP8.Memory.MMU mmu;
-    private Replay.CHIP8.Processor.CPU cpu;
-    private Replay.CHIP8.Graphics.PPU ppu;
-    private Replay.CHIP8.IO.Keypad keypad;
-    private Replay.CHIP8.Graphics.Widgets.Display display;
+    private Vee.CHIP8.Memory.MMU mmu;
+    private Vee.CHIP8.Processor.CPU cpu;
+    private Vee.CHIP8.Graphics.PPU ppu;
+    private Vee.CHIP8.IO.Keypad keypad;
+    private Vee.CHIP8.Graphics.Widgets.Display display;
 
-    private Replay.CHIP8.Debug.Dialog debugger;
+    private Vee.CHIP8.Debug.Dialog debugger;
 
     construct {
-        mmu = new Replay.CHIP8.Memory.MMU ();
-        ppu = new Replay.CHIP8.Graphics.PPU (mmu);
-        keypad = new Replay.CHIP8.IO.Keypad ();
-        cpu = new Replay.CHIP8.Processor.CPU (mmu, ppu, keypad);
-        display = new Replay.CHIP8.Graphics.Widgets.Display (ppu);
+        mmu = new Vee.CHIP8.Memory.MMU ();
+        ppu = new Vee.CHIP8.Graphics.PPU (mmu);
+        keypad = new Vee.CHIP8.IO.Keypad ();
+        cpu = new Vee.CHIP8.Processor.CPU (mmu, ppu, keypad);
+        display = new Vee.CHIP8.Graphics.Widgets.Display (ppu);
 
-        debugger = new Replay.CHIP8.Debug.Dialog ();
+        debugger = new Vee.CHIP8.Debug.Dialog ();
 
         initialize ();
     }
@@ -79,7 +79,7 @@ public class Replay.CHIP8.Interpreter : Replay.Emulator, GLib.Object {
             GLib.FileInputStream input_stream = file.read ();
             while ((buffer_bytes = input_stream.read (buffer, cancellable)) != 0) {
                 for (int i = 0; i < buffer_bytes; i++) {
-                    mmu.set_byte (Replay.CHIP8.Memory.MMU.ROM_OFFSET + (int) bytes_read + i, buffer[i]);
+                    mmu.set_byte (Vee.CHIP8.Memory.MMU.ROM_OFFSET + (int) bytes_read + i, buffer[i]);
                 }
                 bytes_read += buffer_bytes;
             }
@@ -129,15 +129,15 @@ public class Replay.CHIP8.Interpreter : Replay.Emulator, GLib.Object {
         return debugger;
     }
 
-    public void show (Replay.MainWindow main_window) {
+    public void show (Vee.MainWindow main_window) {
         //  if (display == null) {
-        //      display = new Replay.CHIP8.Graphics.Widgets.Display (main_window, ppu);
+        //      display = new Vee.CHIP8.Graphics.Widgets.Display (main_window, ppu);
         //      display.show_all ();
         //      display.key_pressed.connect ((keyboard_key) => {
-        //          keypad.key_pressed (Replay.CHIP8.IO.Keypad.KEYPAD_MAPPING.get (keyboard_key));
+        //          keypad.key_pressed (Vee.CHIP8.IO.Keypad.KEYPAD_MAPPING.get (keyboard_key));
         //      });
         //      display.key_released.connect ((keyboard_key) => {
-        //          keypad.key_released (Replay.CHIP8.IO.Keypad.KEYPAD_MAPPING.get (keyboard_key));
+        //          keypad.key_released (Vee.CHIP8.IO.Keypad.KEYPAD_MAPPING.get (keyboard_key));
         //      });
         //      display.destroy.connect (() => {
         //          display = null;
@@ -145,7 +145,7 @@ public class Replay.CHIP8.Interpreter : Replay.Emulator, GLib.Object {
         //          stop ();
         //          closed ();
         //      });
-        //      //  debugger = new Replay.CHIP8.Debug.Dialog (display);
+        //      //  debugger = new Vee.CHIP8.Debug.Dialog (display);
         //      //  debugger.show_all ();
         //      //  debugger.present ();
         //  }

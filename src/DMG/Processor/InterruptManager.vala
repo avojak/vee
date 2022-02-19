@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Processor.InterruptManager : GLib.Object, Replay.DMG.Memory.AddressSpace {
+public class Vee.DMG.Processor.InterruptManager : GLib.Object, Vee.DMG.Memory.AddressSpace {
 
     private const int INTERRUPT_ENABLE_ADDRESS = 0xFFFF;
     private const int INTERRUPT_FLAG_ADDRESS = 0xFF0F;

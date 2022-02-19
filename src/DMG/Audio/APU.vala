@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Audio.APU : GLib.Object {
+public class Vee.DMG.Audio.APU : GLib.Object {
 
 
 }

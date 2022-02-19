@@ -19,16 +19,16 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.CHIP8.Processor.CPU : GLib.Object {
+public class Vee.CHIP8.Processor.CPU : GLib.Object {
 
     private const int INSTRUCTION_FREQUENCY = 500; // TODO: ???
     private const int TIMER_FREQUENCY = 60; // Timers are updated a frequency of 60Hz (i.e. once every 16.667ms)
 
-    private unowned Replay.CHIP8.Memory.MMU mmu;
-    private unowned Replay.CHIP8.Graphics.PPU ppu;
-    private unowned Replay.CHIP8.IO.Keypad keypad;
+    private unowned Vee.CHIP8.Memory.MMU mmu;
+    private unowned Vee.CHIP8.Graphics.PPU ppu;
+    private unowned Vee.CHIP8.IO.Keypad keypad;
 
-    private Replay.CHIP8.Processor.Registers registers;
+    private Vee.CHIP8.Processor.Registers registers;
     private uint16 stack[16];
     private uint16 sp = 0;
     private uint8 delay_timer = 0;
@@ -38,14 +38,14 @@ public class Replay.CHIP8.Processor.CPU : GLib.Object {
     private int64 previous_instruction_update = 0;
     private int64 previous_timer_update = 0;
 
-    public CPU (Replay.CHIP8.Memory.MMU mmu, Replay.CHIP8.Graphics.PPU ppu, Replay.CHIP8.IO.Keypad keypad) {
+    public CPU (Vee.CHIP8.Memory.MMU mmu, Vee.CHIP8.Graphics.PPU ppu, Vee.CHIP8.IO.Keypad keypad) {
         this.mmu = mmu;
         this.ppu = ppu;
         this.keypad = keypad;
     }
 
     construct {
-        registers = new Replay.CHIP8.Processor.Registers ();
+        registers = new Vee.CHIP8.Processor.Registers ();
         for (int i = 0; i < stack.length; i++) {
             stack[i] = 0;
         }
@@ -396,7 +396,7 @@ public class Replay.CHIP8.Processor.CPU : GLib.Object {
     }
 
     private void FX29 (uint16 instruction) {
-        registers.i = get_vx (instruction) * Replay.CHIP8.Memory.MMU.FONT_SPRITE_SIZE;
+        registers.i = get_vx (instruction) * Vee.CHIP8.Memory.MMU.FONT_SPRITE_SIZE;
     }
 
     private void FX33 (uint16 instruction) {

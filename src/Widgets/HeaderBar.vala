@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.Widgets.HeaderBar : Hdy.HeaderBar {
+public class Vee.Widgets.HeaderBar : Hdy.HeaderBar {
 
     public HeaderBar () {
         Object (

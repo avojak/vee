@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 FLATPAK_BUILDER_EXE = flatpak run org.flatpak.Builder
-FLATPAK_MANIFEST = com.github.avojak.replay.yml
+FLATPAK_MANIFEST = com.github.avojak.vee.yml
 
 .PHONY: all test clean-test flatpak
 

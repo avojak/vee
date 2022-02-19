@@ -19,9 +19,9 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Graphics.Display : Hdy.Window {
+public class Vee.DMG.Graphics.Display : Hdy.Window {
 
-    public unowned Replay.MainWindow main_window { get; construct; }
+    public unowned Vee.MainWindow main_window { get; construct; }
 
     private const int WIDTH = 160;
     private const int HEIGHT = 144;
@@ -31,11 +31,11 @@ public class Replay.DMG.Graphics.Display : Hdy.Window {
 
     private Gtk.DrawingArea drawing_area;
 
-    public Display (Replay.MainWindow main_window) {
+    public Display (Vee.MainWindow main_window) {
         Object (
             deletable: false,
             resizable: false,
-            title: Replay.DMG.Emulator.COMMON_NAME,
+            title: Vee.DMG.Emulator.COMMON_NAME,
             //  transient_for: main_window,
             modal: false,
             main_window: main_window
@@ -49,7 +49,7 @@ public class Replay.DMG.Graphics.Display : Hdy.Window {
         drawing_area.draw.connect (on_draw);
 
         var header_bar = new Hdy.HeaderBar () {
-            title = Replay.DMG.Emulator.COMMON_NAME,
+            title = Vee.DMG.Emulator.COMMON_NAME,
             show_close_button = true,
             has_subtitle = false
         };

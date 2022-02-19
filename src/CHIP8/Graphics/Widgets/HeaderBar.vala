@@ -19,11 +19,11 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.CHIP8.Graphics.Widgets.HeaderBar : Hdy.HeaderBar {
+public class Vee.CHIP8.Graphics.Widgets.HeaderBar : Hdy.HeaderBar {
 
     public HeaderBar () {
         Object (
-            title: Replay.CHIP8.Interpreter.COMMON_NAME,
+            title: Vee.CHIP8.Interpreter.COMMON_NAME,
             show_close_button: true,
             has_subtitle: false,
             decoration_layout: "close:" // Disable the maximize/restore button

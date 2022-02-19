@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public interface Replay.DMG.Memory.AddressSpace : GLib.Object {
+public interface Vee.DMG.Memory.AddressSpace : GLib.Object {
 
     public abstract bool accepts (int address);
 

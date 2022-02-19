@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.IO.Joypad : GLib.Object, Replay.DMG.Memory.AddressSpace {
+public class Vee.DMG.IO.Joypad : GLib.Object, Vee.DMG.Memory.AddressSpace {
 
     private const int ADDRESS = 0xFF00;
 

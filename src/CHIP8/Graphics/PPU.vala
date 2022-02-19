@@ -19,17 +19,17 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.CHIP8.Graphics.PPU : GLib.Object {
+public class Vee.CHIP8.Graphics.PPU : GLib.Object {
 
     public const int WIDTH = 64;
     public const int HEIGHT = 32;
     private const int SPRITE_WIDTH = 8;
     
-    private unowned Replay.CHIP8.Memory.MMU mmu;
+    private unowned Vee.CHIP8.Memory.MMU mmu;
 
     private uint8[] data;
 
-    public PPU (Replay.CHIP8.Memory.MMU mmu) {
+    public PPU (Vee.CHIP8.Memory.MMU mmu) {
         this.mmu = mmu;
     }
 

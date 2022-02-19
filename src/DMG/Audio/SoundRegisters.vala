@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Audio.SoundRegisters : GLib.Object, Replay.DMG.Memory.AddressSpace {
+public class Vee.DMG.Audio.SoundRegisters : GLib.Object, Vee.DMG.Memory.AddressSpace {
 
     private int[] space;
 

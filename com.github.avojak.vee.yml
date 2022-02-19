@@ -1,10 +1,10 @@
-app-id: com.github.avojak.replay
+app-id: com.github.avojak.vee
 
 runtime: io.elementary.Platform
 runtime-version: '6.1'
 sdk: io.elementary.Sdk
 
-command: com.github.avojak.replay
+command: com.github.avojak.vee
 
 finish-args:
   - '--share=ipc'
@@ -14,7 +14,7 @@ finish-args:
   - '--filesystem=host'
 
 modules:
-  - name: replay
+  - name: vee
     buildsystem: meson
     sources:
       - type: dir

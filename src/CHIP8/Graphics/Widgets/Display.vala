@@ -19,13 +19,13 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.CHIP8.Graphics.Widgets.Display : Gtk.Grid {
+public class Vee.CHIP8.Graphics.Widgets.Display : Gtk.Grid {
 
-    public unowned Replay.CHIP8.Graphics.PPU ppu { get; construct; }
+    public unowned Vee.CHIP8.Graphics.PPU ppu { get; construct; }
     
     private const int BASE_SCALING = 8; // Base scaling factor to have a reasonable default display size
 
-    public Display (Replay.CHIP8.Graphics.PPU ppu) {
+    public Display (Vee.CHIP8.Graphics.PPU ppu) {
         Object (
             expand: true,
             ppu: ppu
@@ -34,13 +34,13 @@ public class Replay.CHIP8.Graphics.Widgets.Display : Gtk.Grid {
 
     construct {
         var drawing_area = new Gtk.DrawingArea ();
-        drawing_area.width_request = Replay.CHIP8.Graphics.PPU.WIDTH * BASE_SCALING;
-        drawing_area.height_request = Replay.CHIP8.Graphics.PPU.HEIGHT * BASE_SCALING;
+        drawing_area.width_request = Vee.CHIP8.Graphics.PPU.WIDTH * BASE_SCALING;
+        drawing_area.height_request = Vee.CHIP8.Graphics.PPU.HEIGHT * BASE_SCALING;
         drawing_area.draw.connect (on_draw);
 
-        //  var header_bar = new Replay.CHIP8.Graphics.Widgets.HeaderBar ();
+        //  var header_bar = new Vee.CHIP8.Graphics.Widgets.HeaderBar ();
         //  var header_bar = new Hdy.HeaderBar () {
-        //      title = Replay.CHIP8.Interpreter.COMMON_NAME,
+        //      title = Vee.CHIP8.Interpreter.COMMON_NAME,
         //      show_close_button = true,
         //      has_subtitle = false,
         //      decoration_layout = "close:" // Disable the maximize/restore button
@@ -57,14 +57,14 @@ public class Replay.CHIP8.Graphics.Widgets.Display : Gtk.Grid {
 
         this.key_press_event.connect ((event_key) => {
             var keyboard_key = event_key.str.up ()[0];
-            if (Replay.CHIP8.IO.Keypad.KEYPAD_MAPPING.has_key (keyboard_key)) {
+            if (Vee.CHIP8.IO.Keypad.KEYPAD_MAPPING.has_key (keyboard_key)) {
                 key_pressed (keyboard_key);
                 return false;
             }
         });
         this.key_release_event.connect ((event_key) => {
             var keyboard_key = event_key.str.up ()[0];
-            if (Replay.CHIP8.IO.Keypad.KEYPAD_MAPPING.has_key (keyboard_key)) {
+            if (Vee.CHIP8.IO.Keypad.KEYPAD_MAPPING.has_key (keyboard_key)) {
                 key_released (keyboard_key);
                 return false;
             }
@@ -75,8 +75,8 @@ public class Replay.CHIP8.Graphics.Widgets.Display : Gtk.Grid {
 
     private bool on_draw (Gtk.Widget da, Cairo.Context ctx) {
         ctx.save ();
-        for (int row = 0; row < Replay.CHIP8.Graphics.PPU.HEIGHT; row++) {
-            for (int col = 0; col < Replay.CHIP8.Graphics.PPU.WIDTH; col++) {
+        for (int row = 0; row < Vee.CHIP8.Graphics.PPU.HEIGHT; row++) {
+            for (int col = 0; col < Vee.CHIP8.Graphics.PPU.WIDTH; col++) {
                 int color = ppu.get_pixel (col, row); // * 255;
                 ctx.set_source_rgb (color, color, color);
                 ctx.new_path ();

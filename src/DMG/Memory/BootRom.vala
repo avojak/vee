@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Memory.BootRom : GLib.Object, Replay.DMG.Memory.AddressSpace {
+public class Vee.DMG.Memory.BootRom : GLib.Object, Vee.DMG.Memory.AddressSpace {
 
     private static int[] data = new int[0x100] {
         0x31, 0xFE, 0xFF, 0xAF, 0x21, 0xFF, 0x9F, 0x32, 0xCB, 0x7C, 0x20, 0xFB, 0x21, 0x26, 0xFF, 0x0E,

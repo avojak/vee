@@ -1,10 +1,10 @@
 # Project name and programming language
-# project('com.github.avojak.replay-tests', 'vala', 'c', version: '1.0.0')
+# project('com.github.avojak.vee-tests', 'vala', 'c', version: '1.0.0')
 
 # vala_args = ['--pkg', 'posix']
 
 # application_id = meson.project_name()
-# application_name = 'Replay Tests'
+# application_name = 'Vee Tests'
 
 # meson.add_install_script('meson/post_install.py')
 

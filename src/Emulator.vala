@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public interface Replay.Emulator : GLib.Object {
+public interface Vee.Emulator : GLib.Object {
 
     public abstract string[] get_supported_extensions ();
     public abstract void load_rom (GLib.File file);
@@ -27,7 +27,7 @@ public interface Replay.Emulator : GLib.Object {
     public abstract void stop ();
     public abstract Gtk.Grid get_display ();
     public abstract Gtk.Grid get_debug_display ();
-    public abstract void show (Replay.MainWindow main_window);
+    public abstract void show (Vee.MainWindow main_window);
     public abstract void hide ();
 
     public signal void closed ();

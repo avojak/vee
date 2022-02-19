@@ -7,7 +7,7 @@
   <name>@name@</name>
   <summary>Game Boy Emulator</summary>
   <description>
-    <p>Replay your favorite Game Boy games!</p>
+    <p>Vee your favorite Game Boy games!</p>
   </description>
   <provides>
     <binary>@appid@</binary>
@@ -20,9 +20,9 @@
   </screenshots> -->
   <developer_name>Andrew Vojak</developer_name>
   <launchable type="desktop-id">@appid@.desktop</launchable>
-  <url type="homepage">https://github.com/avojak/replay</url>
-  <url type="bugtracker">https://github.com/avojak/replay/issues</url>
-  <url type="help">https://github.com/avojak/replay/issues</url>
+  <url type="homepage">https://github.com/avojak/vee</url>
+  <url type="bugtracker">https://github.com/avojak/vee/issues</url>
+  <url type="help">https://github.com/avojak/vee/issues</url>
   <update_contact>andrew.vojak@gmail.com</update_contact>
   <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">none</content_attribute>

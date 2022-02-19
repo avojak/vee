@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Memory.ROM : GLib.Object, Replay.DMG.Memory.AddressSpace {
+public class Vee.DMG.Memory.ROM : GLib.Object, Vee.DMG.Memory.AddressSpace {
 
     public ROM () {
     }

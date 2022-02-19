@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.Utils.BitUtils : GLib.Object {
+public class Vee.Utils.BitUtils : GLib.Object {
 
     public static int update_bit (int byte_value, int position, bool value) {
         return value ? set_bit (byte_value, position) : clear_bit (byte_value, position);

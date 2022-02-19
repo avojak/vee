@@ -19,23 +19,23 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.MainLayout : Gtk.Grid {
+public class Vee.MainLayout : Gtk.Grid {
 
-    public unowned Replay.MainWindow window { get; construct; }
+    public unowned Vee.MainWindow window { get; construct; }
 
-    private Replay.Widgets.HeaderBar header_bar;
+    private Vee.Widgets.HeaderBar header_bar;
     private Gtk.Grid control_container;
     private Gtk.Grid emulator_display_container;
     private Gtk.Grid emulator_debug_container;
 
-    public MainLayout (Replay.MainWindow window) {
+    public MainLayout (Vee.MainWindow window) {
         Object (
             window: window
         );
     }
 
     construct {
-        header_bar = new Replay.Widgets.HeaderBar ();
+        header_bar = new Vee.Widgets.HeaderBar ();
         header_bar.get_style_context ().add_class ("default-decoration");
         header_bar.debug_button_clicked.connect (() => {
             debug_button_clicked ();

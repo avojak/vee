@@ -19,11 +19,11 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.Application : Gtk.Application {
+public class Vee.Application : Gtk.Application {
 
     public static GLib.Settings settings;
 
-    private GLib.List<Replay.MainWindow> windows;
+    private GLib.List<Vee.MainWindow> windows;
 
     public Application () {
         Object (
@@ -39,7 +39,7 @@ public class Replay.Application : Gtk.Application {
 
     construct {
         settings = new GLib.Settings (Constants.APP_ID);
-        windows = new GLib.List<Replay.MainWindow> ();
+        windows = new GLib.List<Vee.MainWindow> ();
 
         startup.connect ((handler) => {
             Hdy.init ();
@@ -47,17 +47,17 @@ public class Replay.Application : Gtk.Application {
     }
 
     public override void window_added (Gtk.Window window) {
-        windows.append (window as Replay.MainWindow);
+        windows.append (window as Vee.MainWindow);
         base.window_added (window);
     }
 
     public override void window_removed (Gtk.Window window) {
-        windows.remove (window as Replay.MainWindow);
+        windows.remove (window as Vee.MainWindow);
         base.window_removed (window);
     }
 
-    private Replay.MainWindow add_new_window () {
-        var window = new Replay.MainWindow (this);
+    private Vee.MainWindow add_new_window () {
+        var window = new Vee.MainWindow (this);
         this.add_window (window);
         return window;
     }
@@ -125,7 +125,7 @@ public class Replay.Application : Gtk.Application {
     }
 
     public static int main (string[] args) {
-        var app = new Replay.Application ();
+        var app = new Vee.Application ();
         return app.run (args);
     }
 

@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.DMG.Emulator : Replay.Emulator, GLib.Object {
+public class Vee.DMG.Emulator : Vee.Emulator, GLib.Object {
 
     public const string HARDWARE_NAME = "DMG";
     public const string COMMON_NAME = "Game Boy";
@@ -27,15 +27,15 @@ public class Replay.DMG.Emulator : Replay.Emulator, GLib.Object {
     private Thread<int>? emulator_thread;
     private Cancellable? cancellable;
 
-    private Replay.DMG.Memory.MMU mmu;
-    private Replay.DMG.Processor.CPU cpu;
-    private Replay.DMG.Graphics.PPU ppu;
-    private Replay.DMG.Graphics.Display display;
+    private Vee.DMG.Memory.MMU mmu;
+    private Vee.DMG.Processor.CPU cpu;
+    private Vee.DMG.Graphics.PPU ppu;
+    private Vee.DMG.Graphics.Display display;
 
     construct {
-        mmu = new Replay.DMG.Memory.MMU ();
-        cpu = new Replay.DMG.Processor.CPU (mmu);
-        ppu = new Replay.DMG.Graphics.PPU ();
+        mmu = new Vee.DMG.Memory.MMU ();
+        cpu = new Vee.DMG.Processor.CPU (mmu);
+        ppu = new Vee.DMG.Graphics.PPU ();
 
         initialize ();
     }
@@ -93,9 +93,9 @@ public class Replay.DMG.Emulator : Replay.Emulator, GLib.Object {
         return null;
     }
 
-    public void show (Replay.MainWindow main_window) {
+    public void show (Vee.MainWindow main_window) {
         if (display == null) {
-            display = new Replay.DMG.Graphics.Display (main_window);
+            display = new Vee.DMG.Graphics.Display (main_window);
             display.show_all ();
             display.destroy.connect (() => {
                 display = null;

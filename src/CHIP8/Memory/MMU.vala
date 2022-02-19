@@ -19,7 +19,7 @@
  * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
  */
 
-public class Replay.CHIP8.Memory.MMU : GLib.Object {
+public class Vee.CHIP8.Memory.MMU : GLib.Object {
 
 	//  public const int FONT_OFFSET = 0x50;
 	public const uint16 ROM_SIZE = 0x1000; // 4096 bytes

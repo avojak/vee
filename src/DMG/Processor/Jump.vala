@@ -19,9 +19,9 @@
 //   * Authored by: Andrew Vojak <andrew.vojak@gmail.com>
 //   */
 
-//  public class Replay.DMG.Processor.Jump : Replay.DMG.Processor.Operation {    
+//  public class Vee.DMG.Processor.Jump : Vee.DMG.Processor.Operation {    
 
-//      public Jump (string description, Replay.DMG.Processor.Operation.Lambda exec, int length, int ticks) {
+//      public Jump (string description, Vee.DMG.Processor.Operation.Lambda exec, int length, int ticks) {
 //          Object (
 //              description: description,
 //              ticks: ticks,
@@ -30,7 +30,7 @@
 //          this.exec = exec;
 //      }
 
-//      public new int execute (Replay.DMG.Processor.CPU cpu) {
+//      public new int execute (Vee.DMG.Processor.CPU cpu) {
 //          int result = exec (cpu);
 //          handle_flags (cpu);
 //          cpu.set_pc (cpu.get_pc () + length);
