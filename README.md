@@ -3,9 +3,9 @@
 ![GitHub](https://img.shields.io/github/license/avojak/vee.svg?color=blue)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/avojak/vee?sort=semver)
 
-<!-- <p align="center">
+<p align="center">
   <img src="data/assets/vee.svg" alt="Icon" />
-</p> -->
+</p>
 <h1 align="center">Vee</h1>
 <!-- <p align="center">
   <a href="https://appcenter.elementary.io/com.github.avojak.vee"><img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter" /></a>
