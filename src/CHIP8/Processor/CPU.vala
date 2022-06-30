@@ -21,11 +21,12 @@
 
 public class Vee.CHIP8.Processor.CPU : GLib.Object {
 
-    private const int INSTRUCTION_FREQUENCY = 500; // TODO: ???
-    private const int TIMER_FREQUENCY = 60; // Timers are updated a frequency of 60Hz (i.e. once every 16.667ms)
+    private const double INSTRUCTION_FREQUENCY = 500; // TODO: ??? instructions/second
+    private const double TIMER_FREQUENCY = 60.0; // Timers are updated a frequency of 60Hz (i.e. once every 16.667ms)
 
     private unowned Vee.CHIP8.Memory.MMU mmu;
     private unowned Vee.CHIP8.Graphics.PPU ppu;
+    private unowned Vee.CHIP8.Audio.APU apu;
     private unowned Vee.CHIP8.IO.Keypad keypad;
 
     private Vee.CHIP8.Processor.Registers registers;
@@ -38,9 +39,10 @@ public class Vee.CHIP8.Processor.CPU : GLib.Object {
     private int64 previous_instruction_update = 0;
     private int64 previous_timer_update = 0;
 
-    public CPU (Vee.CHIP8.Memory.MMU mmu, Vee.CHIP8.Graphics.PPU ppu, Vee.CHIP8.IO.Keypad keypad) {
+    public CPU (Vee.CHIP8.Memory.MMU mmu, Vee.CHIP8.Graphics.PPU ppu, Vee.CHIP8.Audio.APU apu, Vee.CHIP8.IO.Keypad keypad) {
         this.mmu = mmu;
         this.ppu = ppu;
+        this.apu = apu;
         this.keypad = keypad;
     }
 
@@ -52,12 +54,12 @@ public class Vee.CHIP8.Processor.CPU : GLib.Object {
     }
 
     public void tick () {
-        var now = GLib.get_real_time () / 1000;
+        var now = GLib.get_monotonic_time () / 1000; // Current milliseconds
 
         // Execute the instruction
-        if ((now - previous_instruction_update) >= (1 / INSTRUCTION_FREQUENCY * 1000)) {
+        if ((now - previous_instruction_update) >= (1.0 / INSTRUCTION_FREQUENCY * 1000)) {
             instruction = (mmu.get_byte (registers.pc) << 8) | (mmu.get_byte (registers.pc + 1));
-            debug ("$%03X: 0x%04X", registers.pc, instruction);
+            //  debug ("$%03X: 0x%04X", registers.pc, instruction);
             //  uint8 instruction_type = (0xF000 & instruction) >> 12;
             //  if (instruction_type != 0x1 && instruction_type != 0x2 && instruction_type != 0xB) {
                 next_instruction ();
@@ -67,11 +69,12 @@ public class Vee.CHIP8.Processor.CPU : GLib.Object {
         }
 
         // Update timers
-        if ((now - previous_timer_update) >= (1 / TIMER_FREQUENCY * 1000)) {
+        if ((now - previous_timer_update) >= (1.0 / TIMER_FREQUENCY * 1000)) {
             if (delay_timer > 0) {
                 delay_timer--;
             }
             if (sound_timer > 0) {
+                apu.play ();
                 sound_timer--;
             }
             previous_timer_update = now;

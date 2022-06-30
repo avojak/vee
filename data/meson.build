@@ -28,6 +28,12 @@ endforeach
 #     install_dir: join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
 # )
 
+# Install the audio files
+install_data (
+    join_paths('assets', 'audio', 'beep.wav'),
+    install_dir: join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
+)
+
 # Install the settings schema
 schema_path = '/com/github/avojak/vee/'
 schema_conf = configuration_data()
@@ -77,9 +83,3 @@ i18n.merge_file(
     install: true,
     install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
-
-# Use GResource
-# css_gresource = gnome.compile_resources(
-#     'gresource_css',
-#     meson.project_name() + '.gresource.xml'
-# )

@@ -1,19 +1,30 @@
 app-id: com.github.avojak.vee
 
 runtime: io.elementary.Platform
-runtime-version: '6.1'
+runtime-version: '7'
 sdk: io.elementary.Sdk
 
 command: com.github.avojak.vee
 
 finish-args:
   - '--share=ipc'
-  - '--share=network'
   - '--socket=fallback-x11'
   - '--socket=wayland'
+  - '--socket=pulseaudio'
   - '--filesystem=host'
 
 modules:
+  - name: canberra
+    config-opts:
+      - '--enable-gstreamer'
+      - '--enable-pulse'
+      - '--disable-oss'
+      - '--disable-static'
+      - '--with-builtin=dso'
+    sources:
+      - type: git
+        url: http://git.0pointer.net/clone/libcanberra.git
+        disable-shallow-clone: true
   - name: vee
     buildsystem: meson
     sources:

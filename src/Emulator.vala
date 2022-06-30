@@ -25,10 +25,13 @@ public interface Vee.Emulator : GLib.Object {
     public abstract void load_rom (GLib.File file);
     public abstract void start ();
     public abstract void stop ();
-    public abstract Gtk.Grid get_display ();
-    public abstract Gtk.Grid get_debug_display ();
+    public abstract Gtk.Container get_display ();
+    public abstract Gtk.Container get_debug_display ();
     public abstract void show (Vee.MainWindow main_window);
     public abstract void hide ();
+
+    public abstract void key_pressed (char key);
+    public abstract void key_released (char key);
 
     public signal void closed ();
 

@@ -85,14 +85,22 @@ public class Vee.DMG.Emulator : Vee.Emulator, GLib.Object {
         emulator_thread = null;
     }
 
-    public Gtk.Grid get_display () {
+    public Gtk.Container get_display () {
         return null;
     }
 
-    public Gtk.Grid get_debug_display () {
+    public Gtk.Container get_debug_display () {
         return null;
     }
 
+    public void key_pressed (char key) {
+        // TODO
+    }
+
+    public void key_released (char key) {
+        // TODO
+    }
+    
     public void show (Vee.MainWindow main_window) {
         if (display == null) {
             display = new Vee.DMG.Graphics.Display (main_window);

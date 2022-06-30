@@ -89,25 +89,7 @@ public class Vee.CHIP8.Graphics.PPU : GLib.Object {
                 }
             }
 
-            // XXX: Debugging
-            //  print ("+");
-            //  for (int i = 0; i < WIDTH; i++) {
-            //      print ("-");
-            //  }
-            //  print ("+\n");
-            //  for (int row = 0; row < HEIGHT; row++) {
-            //      var sb = new StringBuilder ("|");
-            //      for (int col = 0; col < WIDTH; col++) {
-            //          int index = col + (row * WIDTH);
-            //          sb.append (data[index] == 1 ? "X" : " ");
-            //      }
-            //      print (sb.str + "|\n");
-            //  }
-            //  print ("+");
-            //  for (int i = 0; i < WIDTH; i++) {
-            //      print ("-");
-            //  }
-            //  print ("+\n\n");
+            display_data_changed ();
 
             return are_pixels_unset;
         }
@@ -122,5 +104,7 @@ public class Vee.CHIP8.Graphics.PPU : GLib.Object {
     public void clear () {
         initialize_data ();
     }
+
+    public signal void display_data_changed ();
 
 }

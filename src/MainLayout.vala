@@ -87,19 +87,19 @@ public class Vee.MainLayout : Gtk.Grid {
         show_all ();
     }
 
-    public void set_emulator_display (Gtk.Grid display) {
+    public void set_emulator_display (Gtk.Container display) {
         emulator_display_container.attach (display, 0, 0);
     }
 
-    public void remove_emulator_display (Gtk.Grid display) {
+    public void remove_emulator_display (Gtk.Container display) {
         emulator_display_container.remove (display);
     }
 
-    public void set_emulator_debug_display (Gtk.Grid debug_display) {
+    public void set_emulator_debug_display (Gtk.Container debug_display) {
         emulator_debug_container.attach (debug_display, 0, 0);
     }
 
-    public void remove_emulator_debug_display (Gtk.Grid debug_display) {
+    public void remove_emulator_debug_display (Gtk.Container debug_display) {
         emulator_debug_container.remove (debug_display);
     }
 

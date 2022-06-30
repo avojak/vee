@@ -33,6 +33,7 @@ public class Vee.CHIP8.Interpreter : Vee.Emulator, GLib.Object {
     private Vee.CHIP8.Memory.MMU mmu;
     private Vee.CHIP8.Processor.CPU cpu;
     private Vee.CHIP8.Graphics.PPU ppu;
+    private Vee.CHIP8.Audio.APU apu;
     private Vee.CHIP8.IO.Keypad keypad;
     private Vee.CHIP8.Graphics.Widgets.Display display;
 
@@ -41,8 +42,9 @@ public class Vee.CHIP8.Interpreter : Vee.Emulator, GLib.Object {
     construct {
         mmu = new Vee.CHIP8.Memory.MMU ();
         ppu = new Vee.CHIP8.Graphics.PPU (mmu);
+        apu = new Vee.CHIP8.Audio.APU ();
         keypad = new Vee.CHIP8.IO.Keypad ();
-        cpu = new Vee.CHIP8.Processor.CPU (mmu, ppu, keypad);
+        cpu = new Vee.CHIP8.Processor.CPU (mmu, ppu, apu, keypad);
         display = new Vee.CHIP8.Graphics.Widgets.Display (ppu);
 
         debugger = new Vee.CHIP8.Debug.Dialog ();
@@ -121,11 +123,11 @@ public class Vee.CHIP8.Interpreter : Vee.Emulator, GLib.Object {
         emulator_thread = null;
     }
 
-    public Gtk.Grid get_display () {
+    public Gtk.Container get_display () {
         return display;
     }
 
-    public Gtk.Grid get_debug_display () {
+    public Gtk.Container get_debug_display () {
         return debugger;
     }
 
@@ -156,6 +158,18 @@ public class Vee.CHIP8.Interpreter : Vee.Emulator, GLib.Object {
         //  if (display != null) {
         //      display.close ();
         //  }
+    }
+
+    public void key_pressed (char key) {
+        if (Vee.CHIP8.IO.Keypad.KEYPAD_MAPPING.has_key (key)) {
+            keypad.key_pressed (Vee.CHIP8.IO.Keypad.KEYPAD_MAPPING.get (key));
+        }
+    }
+
+    public void key_released (char key) {
+        if (Vee.CHIP8.IO.Keypad.KEYPAD_MAPPING.has_key (key)) {
+            keypad.key_released (Vee.CHIP8.IO.Keypad.KEYPAD_MAPPING.get (key));
+        }
     }
 
 }

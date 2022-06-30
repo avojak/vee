@@ -63,6 +63,19 @@ public class Vee.MainWindow : Hdy.Window {
         main_layout.stop_button_clicked.connect (on_stop_button_clicked);
         main_layout.debug_button_clicked.connect (on_debug_button_clicked);
 
+        this.key_press_event.connect ((event_key) => {
+            var keyboard_key = event_key.str.up ()[0];
+            if (emulator != null) {
+                emulator.key_pressed (keyboard_key);
+            }
+        });
+        this.key_release_event.connect ((event_key) => {
+            var keyboard_key = event_key.str.up ()[0];
+            if (emulator != null) {
+                emulator.key_released (keyboard_key);
+            }
+        });
+
         show_app ();
     }
 

@@ -18,6 +18,7 @@ application_files = files(
     join_paths('Widgets', 'HeaderBar.vala'),
     join_paths('Widgets', 'Dialogs', 'DebugDialog.vala'),
     join_paths('Utils', 'BitUtils.vala'),
+    join_paths('CHIP8', 'Audio', 'APU.vala'),
     join_paths('CHIP8', 'Interpreter.vala'),
     join_paths('CHIP8', 'Debug', 'Dialog.vala'),
     join_paths('CHIP8', 'Graphics', 'Widgets', 'Display.vala'),
@@ -57,13 +58,13 @@ executable(
     application_id,
     application_files,
     config_header,
-    # css_gresource,
     dependencies: [
         dependency('gtk+-3.0', version: '>= 3.6.4'),
         dependency('gee-0.8', version: '>= 0.8.5'),
         dependency('glib-2.0', version: '>= 2.30.0'),
         dependency('granite', version: '>= 0.6.0'),
-        dependency('libhandy-1', version: '>=1.0.0')
+        dependency('libhandy-1', version: '>=1.0.0'),
+        dependency('libcanberra', version: '>= 0.30')
     ],
     vala_args: vala_args,
     install: true
