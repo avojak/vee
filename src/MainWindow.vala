@@ -108,8 +108,8 @@ public class Vee.MainWindow : Hdy.Window {
         if (emulator != null) {
             return;
         }
-        //  emulator = new Vee.DMG.Emulator ();
-        emulator = new Vee.CHIP8.Interpreter ();
+        emulator = new Vee.DMG.Emulator ();
+        //  emulator = new Vee.CHIP8.Interpreter ();
         // TODO: Handle when ROM file not found
         //  emulator.load_rom (GLib.File.new_for_path (Constants.PKG_DATA_DIR + "/" + "IBM Logo.ch8"));
         //  emulator.load_rom (GLib.File.new_for_path (Constants.PKG_DATA_DIR + "/" + "test_opcode.ch8"));
